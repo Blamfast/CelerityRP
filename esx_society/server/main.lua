@@ -37,6 +37,7 @@ AddEventHandler('onMySQLReady', function()
 
   for i=1, #result2, 1 do
     Jobs[result2[i].job_name].grades[tostring(result2[i].grade)] = result2[i]
+	print(result2[i])
   end
 
 end)
@@ -363,7 +364,7 @@ end)
 ESX.RegisterServerCallback('esx_society:getJob', function(source, cb, society)
 	local job = json.decode(json.encode(Jobs[society]))
 	local grades = {}
-
+	
 	for k,v in pairs(job.grades) do
 		table.insert(grades, v)
 	end
