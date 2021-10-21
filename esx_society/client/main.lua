@@ -258,7 +258,7 @@ function OpenEmployeeList(society)
 
     for i=1, #employees, 1 do
 
-      local gradeLabel = (employees[i].job.grade_label == '' and employees[i].job.label or employees[i].job.grade_label)
+      local gradeLabel = (employees[i].job.grade_label == "" or employees[i].job.grade_label)
 
       table.insert(elements.rows, {
         data = employees[i],

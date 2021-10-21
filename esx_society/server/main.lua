@@ -37,7 +37,6 @@ AddEventHandler('onMySQLReady', function()
 
   for i=1, #result2, 1 do
     Jobs[result2[i].job_name].grades[tostring(result2[i].grade)] = result2[i]
-	print(result2[i])
   end
 
 end)
@@ -264,8 +263,8 @@ ESX.RegisterServerCallback('esx_society:getSocietyMoney', function(source, cb, s
 end)
 
 ESX.RegisterServerCallback('esx_society:getEmployees', function(source, cb, society)
+	print(society)
 	if Config.EnableESXIdentity then
-
 		MySQL.Async.fetchAll('SELECT firstname, lastname, identifier, job, job_grade FROM users WHERE job = @job ORDER BY job_grade DESC', {
 			['@job'] = society
 		}, function (results)
